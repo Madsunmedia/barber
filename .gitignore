@@ -1,0 +1,16 @@
+# Dependency directories
+node_modules/
+
+# Agent related
+.agents/
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Large archives (optional, keeping for now as user might want it)
+# hero.zip

@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cut & Conquer — Elite barber studio delivering precision cuts, signature fades, and premium grooming experiences for the modern gentleman." />
+  <meta name="keywords" content="barber, haircut, fade, beard styling, premium grooming, luxury barber" />
+  <title>Cut & Conquer | Elite Barber Studio</title>
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ╔══════════════════════════════╗ -->
+  <!-- ║           NAVBAR             ║ -->
+  <!-- ╚══════════════════════════════╝ -->
+  <header class="navbar" id="navbar" role="banner">
+    <div class="navbar__container">
+      <a href="#hero" class="navbar__logo" aria-label="Cut & Conquer Home">
+        <i class="fa-solid fa-scissors navbar__logo-icon" aria-hidden="true"></i>
+        <span class="navbar__logo-text">Cut <span class="gold">&amp;</span> Conquer</span>
+      </a>
+
+      <nav class="navbar__nav" role="navigation" aria-label="Main navigation">
+        <ul class="navbar__links">
+          <li><a href="#features" class="navbar__link">Craft</a></li>
+          <li><a href="#about" class="navbar__link">Story</a></li>
+          <li><a href="#services" class="navbar__link">Services</a></li>
+          <li><a href="#testimonials" class="navbar__link">Reviews</a></li>
+          <li><a href="#faq" class="navbar__link">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <a href="#booking" class="btn btn--gold btn--sm navbar__cta">Book Now</a>
+
+      <button class="navbar__burger" id="burgerBtn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+      <ul class="mobile-menu__links">
+        <li><a href="#features" class="mobile-menu__link">Craft</a></li>
+        <li><a href="#about" class="mobile-menu__link">Story</a></li>
+        <li><a href="#services" class="mobile-menu__link">Services</a></li>
+        <li><a href="#testimonials" class="mobile-menu__link">Reviews</a></li>
+        <li><a href="#faq" class="mobile-menu__link">FAQ</a></li>
+        <li><a href="#booking" class="mobile-menu__link mobile-menu__cta">Book Now</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ╔══════════════════════════════╗ -->
+    <!-- ║             HERO             ║ -->
+    <!-- ╚══════════════════════════════╝ -->
+    <section class="hero" id="hero" aria-label="Hero section">
+      <div class="hero__bg">
+        <!-- Image-sequence canvas — painted by js/main.js initHeroSequence() -->
+        <canvas
+          id="heroCanvas"
+          class="hero__bg-img"
+          aria-hidden="true"
+          role="presentation"
+        ></canvas>
+        <div class="hero__overlay"></div>
+      </div>
+
+      <div class="hero__content container">
+        <p class="hero__eyebrow reveal-up">
+          <i class="fa-solid fa-crown" aria-hidden="true"></i>
+          Elite Grooming Studio &mdash; Est. 2016
+        </p>
+        <h1 class="hero__headline reveal-up">
+          Wear Your<br />
+          <em class="gold italic">Confidence</em><br />
+          Like a Crown.
+        </h1>
+        <p class="hero__sub reveal-up">
+          Precision cuts. Signature fades. Uncompromising craft.<br />
+          Step into the chair. Walk out transformed.
+        </p>
+        <div class="hero__actions reveal-up">
+          <a href="#booking" class="btn btn--gold btn--lg" id="heroCTA">
+            <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+            Book Your Session
+          </a>
+          <a href="#services" class="btn btn--ghost btn--lg">
+            <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+            Explore Services
+          </a>
+        </div>
+        <div class="hero__trust reveal-up">
+          <div class="hero__trust-item">
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+            <span>4.9 Rating</span>
+          </div>
+          <div class="hero__trust-divider" aria-hidden="true"></div>
+          <div class="hero__trust-item">
+            <i class="fa-solid fa-users" aria-hidden="true"></i>
+            <span>12,000+ Clients</span>
+          </div>
+          <div class="hero__trust-divider" aria-hidden="true"></div>
+          <div class="hero__trust-item">
+            <i class="fa-solid fa-award" aria-hidden="true"></i>
+            <span>10 Years Mastery</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__scroll-cue" aria-hidden="true">
+        <span></span>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════╗ -->
+    <!-- ║         MARQUEE STRIP        ║ -->
+    <!-- ╚══════════════════════════════╝ -->
+    <div class="marquee-strip" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item"><i class="fa-solid fa-scissors"></i> Precision Cuts</span>
+        <span class="marquee-item"><i class="fa-solid fa-star"></i> Signature Fades</span>
+        <span class="marquee-item"><i class="fa-solid fa-fire"></i> Elite Grooming</span>
+        <span class="marquee-item"><i class="fa-solid fa-gem"></i> Premium Experience</span>
+        <span class="marquee-item"><i class="fa-solid fa-crown"></i> Beard Mastery</span>
+        <span class="marquee-item"><i class="fa-solid fa-shield-halved"></i> Hygienic &amp; Safe</span>
+        <span class="marquee-item"><i class="fa-solid fa-scissors"></i> Precision Cuts</span>
+        <span class="marquee-item"><i class="fa-solid fa-star"></i> Signature Fades</span>
+        <span class="marquee-item"><i class="fa-solid fa-fire"></i> Elite Grooming</span>
+        <span class="marquee-item"><i class="fa-solid fa-gem"></i> Premium Experience</span>
+        <span class="marquee-item"><i class="fa-solid fa-crown"></i> Beard Mastery</span>
+        <span class="marquee-item"><i class="fa-solid fa-shield-halved"></i> Hygienic &amp; Safe</span>
+      </div>
+    </div>
+
+    <!-- ╔══════════════════════════════╗ -->
+    <!-- ║       FEATURES / CRAFT       ║ -->
+    <!-- ╚══════════════════════════════╝ -->
+    <section class="features section" id="features" aria-label="Our craftsmanship">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <p class="section-eyebrow"><i class="fa-solid fa-diamond" aria-hidden="true"></i> The Craft</p>
+          <h2 class="section-title">Where Artistry Meets <span class="gold">Precision</span></h2>
+          <p class="section-sub">Every cut is a statement. Every detail, deliberate.</p>
+        </div>
+
+        <div class="features__grid">
+          <article class="feature-card reveal-up glass-card">
+            <div class="feature-card__icon">
+              <i class="fa-solid fa-scissors" aria-hidden="true"></i>
+            </div>
+            <h3 class="feature-card__title">Surgical Precision</h3>
+            <p class="feature-card__text">Our master barbers treat every line-up like a signature. Zero guesswork. Pure muscle memory and skill, delivered in every single cut.</p>
+          </article>
+
+          <article class="feature-card reveal-up glass-card" style="--delay: 0.1s">
+            <div class="feature-card__icon">
+              <i class="fa-solid fa-gem" aria-hidden="true"></i>
+            </div>
+            <h3 class="feature-card__title">Premium Tools</h3>
+            <p class="feature-card__text">We invest in professional-grade clippers, straight razors, and artisan products — because exceptional results demand exceptional instruments.</p>
+          </article>
+
+          <article class="feature-card reveal-up glass-card" style="--delay: 0.2s">
+            <div class="feature-card__icon">
+              <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+            </div>
+            <h3 class="feature-card__title">Hygiene First</h3>
+            <p class="feature-card__text">Hospital-level sterilization protocols on every tool. Fresh capes for every client. You sit in comfort, leave in confidence.</p>
+          </article>
+
+          <article class="feature-card reveal-up glass-card" style="--delay: 0.3s">
+            <div class="feature-card__icon">
+              <i class="fa-solid fa-user-tie" aria-hidden="true"></i>
+            </div>
+            <h3 class="feature-card__title">Expert Barbers</h3>
+            <p class="feature-card__text">Each of our barbers carries 7+ years of experience, certified training, and an obsession for perfection. They don't just cut hair — they craft identities.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════╗ -->
+    <!-- ║         ABOUT / STORY        ║ -->
+    <!-- ╚══════════════════════════════╝ -->
+    <section class="about section" id="about" aria-label="Our story">
+      <div class="container">
+        <div class="about__grid">
+          <div class="about__visual reveal-left">
+            <div class="about__img-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=800&q=85&auto=format&fit=crop"
+                alt="Master barber crafting a precise fade"
+                loading="lazy"
+                class="about__img"
+              />
+              <div class="about__badge glass-card">
+                <span class="about__badge-num gold">10+</span>
+                <span class="about__badge-label">Years of Mastery</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about__content reveal-right">
+            <p class="section-eyebrow"><i class="fa-solid fa-book-open" aria-hidden="true"></i> Our Story</p>
+            <h2 class="section-title">Built on Passion.<br /><span class="gold">Defined by Craft.</span></h2>
+            <p class="about__text">Cut &amp; Conquer was born from a simple belief: every man deserves to feel powerful. In 2016, our founder Marcus Ellis — a third-generation barber — opened our doors with a straight razor, a leather chair, and an unbreakable standard.</p>
+            <p class="about__text">Today, we are the city's most trusted grooming destination. Our team of elite barbers have shaped the jawlines, confidence, and careers of over 12,000 clients — from entrepreneurs to athletes to everyday kings.</p>
+            <p class="about__text">This isn't just a barbershop. This is where legends are crafted.</p>
+            <div class="about__metrics">
+              <div class="about__metric">
+                <span class="about__metric-num gold" data-count="12000">0</span>
+                <span class="about__metric-label">Happy Clients</span>
+              </div>
+              <div class="about__metric">
+                <span class="about__metric-num gold" data-count="98">0</span>
+                <span class="about__metric-label">% Satisfaction</span>
+              </div>
+              <div class="about__metric">
+                <span class="about__metric-num gold" data-count="7">0</span>
+                <span class="about__metric-label">Expert Barbers</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════╗ -->
+    <!-- ║        SERVICES SHOWCASE     ║ -->
+    <!-- ╚══════════════════════════════╝ -->
+    <section class="services section" id="services" aria-label="Our services">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <p class="section-eyebrow"><i class="fa-solid fa-list-check" aria-hidden="true"></i> Services</p>
+          <h2 class="section-title">Crafted for the <span class="gold">Modern Gentleman</span></h2>
+          <p class="section-sub">Choose your experience. Each one is delivered with elite-level precision.</p>
+        </div>
+
+        <div class="services__grid">
+
+          <article class="service-card reveal-up" tabindex="0" aria-label="Signature Haircut service">
+            <div class="service-card__img-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=600&q=85&auto=format&fit=crop"
+                alt="Barber giving a precision haircut"
+                loading="lazy"
+                class="service-card__img"
+              />
+              <div class="service-card__overlay">
+                <a href="#booking" class="btn btn--gold btn--sm">Book This</a>
+              </div>
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__header">
+                <h3 class="service-card__title">Signature Haircut</h3>
+                <span class="service-card__price gold">From $40</span>
+              </div>
+              <p class="service-card__desc">Our flagship cut — tailored to your face shape, lifestyle, and personal style. Includes consultation, wash, cut, and finish.</p>
+              <ul class="service-card__features">
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Face-shape analysis</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Wash &amp; condition</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Style &amp; finish</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="service-card reveal-up" style="--delay: 0.1s" tabindex="0" aria-label="Beard Sculpting service">
+            <div class="service-card__img-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1626020669516-2f1a02901296?w=600&q=85&auto=format&fit=crop"
+                alt="Barber sculpting a sharp beard"
+                loading="lazy"
+                class="service-card__img"
+              />
+              <div class="service-card__overlay">
+                <a href="#booking" class="btn btn--gold btn--sm">Book This</a>
+              </div>
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__header">
+                <h3 class="service-card__title">Beard Sculpting</h3>
+                <span class="service-card__price gold">From $30</span>
+              </div>
+              <p class="service-card__desc">Sharp lines. Defined edges. A beard that commands respect. Our barbers sculpt your beard into your most powerful asset.</p>
+              <ul class="service-card__features">
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Edge &amp; line definition</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Hot towel treatment</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Beard oil finish</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="service-card reveal-up" style="--delay: 0.2s" tabindex="0" aria-label="Straight Razor Shave service">
+            <div class="service-card__img-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1534297635766-a262cdcb8ee4?w=600&q=85&auto=format&fit=crop"
+                alt="Straight razor shave being performed"
+                loading="lazy"
+                class="service-card__img"
+              />
+              <div class="service-card__overlay">
+                <a href="#booking" class="btn btn--gold btn--sm">Book This</a>
+              </div>
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__header">
+                <h3 class="service-card__title">Royal Razor Shave</h3>
+                <span class="service-card__price gold">From $50</span>
+              </div>
+              <p class="service-card__desc">The pinnacle of grooming luxury. A traditional hot-towel straight razor shave that strips away stress and leaves skin silk-smooth.</p>
+              <ul class="service-card__features">
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Hot towel ritual</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Straight razor precision</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Aftershave balm</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="service-card reveal-up" style="--delay: 0.3s" tabindex="0" aria-label="Elite Grooming Package service">
+            <div class="service-card__img-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?w=600&q=85&auto=format&fit=crop"
+                alt="Premium grooming tools laid out on marble"
+                loading="lazy"
+                class="service-card__img"
+              />
+              <div class="service-card__overlay">
+                <a href="#booking" class="btn btn--gold btn--sm">Book This</a>
+              </div>
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__header">
+                <h3 class="service-card__title">Elite Package</h3>
+                <span class="service-card__price gold">From $100</span>
+              </div>
+              <p class="service-card__desc">The full conqueror experience. Haircut + beard sculpt + hot towel shave + scalp massage. Walk in a man. Walk out a legend.</p>
+              <ul class="service-card__features">
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Full cut &amp; beard</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Scalp massage</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Complimentary drink</li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════╗ -->
+    <!-- ║        WHY CHOOSE US         ║ -->
+    <!-- ╚══════════════════════════════╝ -->
+    <section class="why section" id="why" aria-label="Why choose Cut and Conquer">
+      <div class="container">
+        <div class="why__grid">
+          <div class="why__content reveal-left">
+            <p class="section-eyebrow"><i class="fa-solid fa-trophy" aria-hidden="true"></i> Why Us</p>
+            <h2 class="section-title">Not Your Average<br /><span class="gold">Barbershop.</span></h2>
+            <p class="why__sub">We exist for gentlemen who demand more. More from their look. More from their experience. More from their barber.</p>
+
+            <ul class="why__list">
+              <li class="why__item reveal-up">
+                <i class="fa-solid fa-circle-check why__icon gold" aria-hidden="true"></i>
+                <div>
+                  <strong>No Waiting Culture</strong>
+                  <p>Appointment-only model. Your time is respected. Your chair is ready when you arrive.</p>
+                </div>
+              </li>
+              <li class="why__item reveal-up" style="--delay: 0.1s">
+                <i class="fa-solid fa-circle-check why__icon gold" aria-hidden="true"></i>
+                <div>
+                  <strong>Personalised Consultation</strong>
+                  <p>Every session starts with a 1-on-1 style consultation. We listen before we cut.</p>
+                </div>
+              </li>
+              <li class="why__item reveal-up" style="--delay: 0.2s">
+                <i class="fa-solid fa-circle-check why__icon gold" aria-hidden="true"></i>
+                <div>
+                  <strong>Satisfaction Guaranteed</strong>
+                  <p>Not happy? We fix it on the spot — free of charge. No questions asked.</p>
+                </div>
+              </li>
+              <li class="why__item reveal-up" style="--delay: 0.3s">
+                <i class="fa-solid fa-circle-check why__icon gold" aria-hidden="true"></i>
+                <div>
+                  <strong>Premium Atmosphere</strong>
+                  <p>Leather chairs. Curated music. Cold drinks. A sanctuary, not just a shop.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="why__visual reveal-right">
+            <img
+              src="https://images.unsplash.com/photo-1560869713-7d0a29430803?w=800&q=85&auto=format&fit=crop"
+              alt="Premium barbershop interior with leather chairs"
+              loading="lazy"
+              class="why__img"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════╗ -->
+    <!-- ║       SOCIAL PROOF / STATS   ║ -->
+    <!-- ╚══════════════════════════════╝ -->
+    <section class="stats section" id="stats" aria-label="Our achievements">
+      <div class="container">
+        <div class="stats__grid">
+          <div class="stat-card reveal-up glass-card" role="img" aria-label="12,000 plus clients served">
+            <i class="fa-solid fa-users stat-card__icon" aria-hidden="true"></i>
+            <span class="stat-card__num gold" data-count="12000">0</span>
+            <span class="stat-card__label">Clients Served</span>
+          </div>
+          <div class="stat-card reveal-up glass-card" style="--delay: 0.1s" role="img" aria-label="4.9 star Google rating">
+            <i class="fa-solid fa-star stat-card__icon" aria-hidden="true"></i>
+            <span class="stat-card__num gold" data-count="4.9" data-decimal>0</span>
+            <span class="stat-card__label">Google Rating</span>
+          </div>
+          <div class="stat-card reveal-up glass-card" style="--delay: 0.2s" role="img" aria-label="10 years in business">
+            <i class="fa-solid fa-calendar-days stat-card__icon" aria-hidden="true"></i>
+            <span class="stat-card__num gold" data-count="10">0</span>
+            <span class="stat-card__label">Years of Excellence</span>
+          </div>
+          <div class="stat-card reveal-up glass-card" style="--delay: 0.3s" role="img" aria-label="7 expert barbers">
+            <i class="fa-solid fa-user-tie stat-card__icon" aria-hidden="true"></i>
+            <span class="stat-card__num gold" data-count="7">0</span>
+            <span class="stat-card__label">Expert Barbers</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════╗ -->
+    <!-- ║         TESTIMONIALS         ║ -->
+    <!-- ╚══════════════════════════════╝ -->
+    <section class="testimonials section" id="testimonials" aria-label="Client testimonials">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <p class="section-eyebrow"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i> Reviews</p>
+          <h2 class="section-title">Real Men. <span class="gold">Real Results.</span></h2>
+          <p class="section-sub">Our work speaks through those who wear it.</p>
+        </div>
+
+        <div class="testimonials__grid">
+
+          <article class="testimonial-card reveal-up glass-card">
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+            </div>
+            <blockquote class="testimonial-card__quote">
+              "I've been to barbershops all over the city. Nothing comes close to Cut &amp; Conquer. My fade is so sharp my boss thought I had a job interview. I walk out a different man every time."
+            </blockquote>
+            <footer class="testimonial-card__author">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80&auto=format&fit=crop&crop=face" alt="James portrait" class="testimonial-card__avatar" loading="lazy" />
+              <div>
+                <strong class="testimonial-card__name">James R.</strong>
+                <span class="testimonial-card__role">Marketing Director</span>
+              </div>
+            </footer>
+          </article>
+
+          <article class="testimonial-card reveal-up glass-card" style="--delay: 0.1s">
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+            </div>
+            <blockquote class="testimonial-card__quote">
+              "The Royal Razor Shave is an unreal experience. Hot towel, straight razor, ends with a face massage. I felt like royalty for $50. Worth every cent — booked my next three appointments on the way out."
+            </blockquote>
+            <footer class="testimonial-card__author">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=80&auto=format&fit=crop&crop=face" alt="Devon portrait" class="testimonial-card__avatar" loading="lazy" />
+              <div>
+                <strong class="testimonial-card__name">Devon P.</strong>
+                <span class="testimonial-card__role">Entrepreneur</span>
+              </div>
+            </footer>
+          </article>
+
+          <article class="testimonial-card reveal-up glass-card" style="--delay: 0.2s">
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+            </div>
+            <blockquote class="testimonial-card__quote">
+              "Switched to Cut &amp; Conquer 2 years ago and I haven't looked back. Their team remembers my style every single time. The atmosphere is elite. This isn't a barbershop, it's a sanctuary."
+            </blockquote>
+            <footer class="testimonial-card__author">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=80&auto=format&fit=crop&crop=face" alt="Marcus portrait" class="testimonial-card__avatar" loading="lazy" />
+              <div>
+                <strong class="testimonial-card__name">Marcus T.</strong>
+                <span class="testimonial-card__role">Fitness Coach</span>
+              </div>
+            </footer>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════╗ -->
+    <!-- ║              FAQ             ║ -->
+    <!-- ╚══════════════════════════════╝ -->
+    <section class="faq section" id="faq" aria-label="Frequently asked questions">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <p class="section-eyebrow"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> FAQ</p>
+          <h2 class="section-title">Questions? <span class="gold">We've Got You.</span></h2>
+        </div>
+
+        <div class="faq__list" role="list">
+
+          <div class="faq__item reveal-up glass-card" role="listitem">
+            <button class="faq__question" aria-expanded="false" aria-controls="faq-1" id="faq-btn-1">
+              <span>How do I book an appointment?</span>
+              <i class="fa-solid fa-chevron-down faq__icon" aria-hidden="true"></i>
+            </button>
+            <div class="faq__answer" id="faq-1" aria-labelledby="faq-btn-1" hidden>
+              <p>Use our online booking form below, call us directly, or DM us on Instagram. We're appointment-only to respect your time — book 24 hours in advance for the best availability.</p>
+            </div>
+          </div>
+
+          <div class="faq__item reveal-up glass-card" style="--delay: 0.05s" role="listitem">
+            <button class="faq__question" aria-expanded="false" aria-controls="faq-2" id="faq-btn-2">
+              <span>How long does a typical session take?</span>
+              <i class="fa-solid fa-chevron-down faq__icon" aria-hidden="true"></i>
+            </button>
+            <div class="faq__answer" id="faq-2" aria-labelledby="faq-btn-2" hidden>
+              <p>A Signature Haircut takes 45–60 minutes. Beard Sculpting is 30–45 minutes. The Royal Razor Shave is 60 minutes. The Elite Package is a full 90-minute experience.</p>
+            </div>
+          </div>
+
+          <div class="faq__item reveal-up glass-card" style="--delay: 0.1s" role="listitem">
+            <button class="faq__question" aria-expanded="false" aria-controls="faq-3" id="faq-btn-3">
+              <span>What products do you use?</span>
+              <i class="fa-solid fa-chevron-down faq__icon" aria-hidden="true"></i>
+            </button>
+            <div class="faq__answer" id="faq-3" aria-labelledby="faq-btn-3" hidden>
+              <p>We exclusively use premium, skin-safe grooming products including American Crew, Uppercut Deluxe, and Baxter of California. All products are paraben-free and dermatologist approved.</p>
+            </div>
+          </div>
+
+          <div class="faq__item reveal-up glass-card" style="--delay: 0.15s" role="listitem">
+            <button class="faq__question" aria-expanded="false" aria-controls="faq-4" id="faq-btn-4">
+              <span>Do you accept walk-ins?</span>
+              <i class="fa-solid fa-chevron-down faq__icon" aria-hidden="true"></i>
+            </button>
+            <div class="faq__answer" id="faq-4" aria-labelledby="faq-btn-4" hidden>
+              <p>We are primarily appointment-based to ensure every client gets our full attention. Same-day walk-ins may be accommodated based on availability — call ahead and we'll do our best.</p>
+            </div>
+          </div>
+
+          <div class="faq__item reveal-up glass-card" style="--delay: 0.2s" role="listitem">
+            <button class="faq__question" aria-expanded="false" aria-controls="faq-5" id="faq-btn-5">
+              <span>What's your cancellation policy?</span>
+              <i class="fa-solid fa-chevron-down faq__icon" aria-hidden="true"></i>
+            </button>
+            <div class="faq__answer" id="faq-5" aria-labelledby="faq-btn-5" hidden>
+              <p>We ask for 24-hour notice for cancellations. No-shows may be charged 50% of the service fee. Life happens — just let us know and we'll reschedule without any hassle.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════╗ -->
+    <!-- ║          CTA BANNER          ║ -->
+    <!-- ╚══════════════════════════════╝ -->
+    <section class="cta-banner reveal-up" id="cta" aria-label="Book now call to action">
+      <div class="cta-banner__bg">
+        <img
+          src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=1920&q=80&auto=format&fit=crop"
+          alt="Barber studio atmosphere"
+          loading="lazy"
+          class="cta-banner__bg-img"
+        />
+        <div class="cta-banner__overlay"></div>
+      </div>
+      <div class="container cta-banner__content">
+        <p class="cta-banner__eyebrow">
+          <i class="fa-solid fa-fire" aria-hidden="true"></i>
+          Limited Appointments Available This Week
+        </p>
+        <h2 class="cta-banner__headline">Your Best Look Is<br /><span class="gold">One Booking Away.</span></h2>
+        <p class="cta-banner__sub">Stop settling for average cuts. Your style deserves elite hands.</p>
+        <a href="#booking" class="btn btn--gold btn--xl cta-banner__btn" id="ctaBannerBtn">
+          <i class="fa-solid fa-calendar-plus" aria-hidden="true"></i>
+          Claim Your Spot Now
+        </a>
+        <p class="cta-banner__urgency">
+          <i class="fa-solid fa-clock" aria-hidden="true"></i>
+          Spots are filling fast — don't miss out
+        </p>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════╗ -->
+    <!-- ║    BOOKING / APPOINTMENT     ║ -->
+    <!-- ╚══════════════════════════════╝ -->
+    <section class="booking section" id="booking" aria-label="Book an appointment">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <p class="section-eyebrow"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Booking</p>
+          <h2 class="section-title">Reserve Your <span class="gold">Chair</span></h2>
+          <p class="section-sub">Takes 60 seconds. Transforms your week.</p>
+        </div>
+
+        <div class="booking__wrapper reveal-up">
+          <form class="booking__form glass-card" id="bookingForm" novalidate aria-label="Appointment booking form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fullName" class="form-label">Full Name</label>
+                <div class="form-input-wrap">
+                  <i class="fa-solid fa-user form-icon" aria-hidden="true"></i>
+                  <input type="text" id="fullName" name="fullName" class="form-input" placeholder="John Doe" required autocomplete="name" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="phoneNum" class="form-label">Phone Number</label>
+                <div class="form-input-wrap">
+                  <i class="fa-solid fa-phone form-icon" aria-hidden="true"></i>
+                  <input type="tel" id="phoneNum" name="phone" class="form-input" placeholder="+1 (555) 000-0000" required autocomplete="tel" />
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="serviceSelect" class="form-label">Service</label>
+                <div class="form-input-wrap">
+                  <i class="fa-solid fa-scissors form-icon" aria-hidden="true"></i>
+                  <select id="serviceSelect" name="service" class="form-select" required>
+                    <option value="" disabled selected>Choose a service</option>
+                    <option value="haircut">Signature Haircut — From $40</option>
+                    <option value="beard">Beard Sculpting — From $30</option>
+                    <option value="shave">Royal Razor Shave — From $50</option>
+                    <option value="package">Elite Package — From $100</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="apptDate" class="form-label">Preferred Date</label>
+                <div class="form-input-wrap">
+                  <i class="fa-solid fa-calendar form-icon" aria-hidden="true"></i>
+                  <input type="date" id="apptDate" name="date" class="form-input" required />
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="apptNotes" class="form-label">Special Requests <span class="form-optional">(optional)</span></label>
+              <textarea id="apptNotes" name="notes" class="form-textarea" rows="3" placeholder="Any style references, allergies, or preferences..."></textarea>
+            </div>
+            <button type="submit" class="btn btn--gold btn--lg booking__submit" id="bookingSubmit">
+              <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+              Confirm My Appointment
+            </button>
+            <p class="booking__disclaimer">
+              <i class="fa-solid fa-lock" aria-hidden="true"></i>
+              Your information is 100% private and secure.
+            </p>
+          </form>
+
+          <div class="booking__info reveal-right">
+            <h3 class="booking__info-title">Studio Hours</h3>
+            <ul class="booking__hours">
+              <li><span>Monday – Friday</span><strong>9AM – 8PM</strong></li>
+              <li><span>Saturday</span><strong>8AM – 7PM</strong></li>
+              <li><span>Sunday</span><strong>10AM – 5PM</strong></li>
+            </ul>
+            <div class="booking__contact">
+              <a href="tel:+15550001234" class="booking__contact-item">
+                <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                +1 (555) 000-1234
+              </a>
+              <a href="mailto:hello@cutandconquer.com" class="booking__contact-item">
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                hello@cutandconquer.com
+              </a>
+              <span class="booking__contact-item">
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                123 King Street, Suite 5, New York
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════╗ -->
+    <!-- ║      NEWSLETTER / OFFERS     ║ -->
+    <!-- ╚══════════════════════════════╝ -->
+    <section class="newsletter section" id="newsletter" aria-label="Newsletter signup">
+      <div class="container">
+        <div class="newsletter__card glass-card reveal-up">
+          <div class="newsletter__content">
+            <i class="fa-solid fa-envelope-open-text newsletter__icon gold" aria-hidden="true"></i>
+            <h2 class="newsletter__title">Get <span class="gold">20% Off</span> Your First Visit</h2>
+            <p class="newsletter__sub">Join the inner circle. Exclusive offers, style tips, and early booking access — delivered to your inbox.</p>
+          </div>
+          <form class="newsletter__form" id="newsletterForm" novalidate aria-label="Newsletter signup form">
+            <div class="newsletter__input-wrap">
+              <input type="email" id="newsletterEmail" name="email" class="form-input" placeholder="Enter your email address" required autocomplete="email" aria-label="Email address" />
+              <button type="submit" class="btn btn--gold" id="newsletterSubmit">
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+                <span>Claim Offer</span>
+              </button>
+            </div>
+            <p class="newsletter__privacy">
+              <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+              No spam, ever. Unsubscribe anytime.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ╔══════════════════════════════╗ -->
+  <!-- ║            FOOTER            ║ -->
+  <!-- ╚══════════════════════════════╝ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="#hero" class="navbar__logo footer__logo" aria-label="Cut & Conquer Home">
+            <i class="fa-solid fa-scissors navbar__logo-icon" aria-hidden="true"></i>
+            <span class="navbar__logo-text">Cut <span class="gold">&amp;</span> Conquer</span>
+          </a>
+          <p class="footer__tagline">Where legends are crafted, one cut at a time.</p>
+          <div class="footer__socials">
+            <a href="#" class="footer__social" aria-label="Follow us on Instagram" rel="noopener">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="footer__social" aria-label="Follow us on Facebook" rel="noopener">
+              <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="footer__social" aria-label="Follow us on TikTok" rel="noopener">
+              <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="footer__social" aria-label="Watch us on YouTube" rel="noopener">
+              <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <h4 class="footer__nav-title">Quick Links</h4>
+          <ul class="footer__nav-list">
+            <li><a href="#features">Our Craft</a></li>
+            <li><a href="#about">Our Story</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#booking">Book Now</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer__services">
+          <h4 class="footer__nav-title">Services</h4>
+          <ul class="footer__nav-list">
+            <li><a href="#services">Signature Haircut</a></li>
+            <li><a href="#services">Beard Sculpting</a></li>
+            <li><a href="#services">Royal Razor Shave</a></li>
+            <li><a href="#services">Elite Package</a></li>
+          </ul>
+        </div>
+
+        <address class="footer__contact" aria-label="Contact information">
+          <h4 class="footer__nav-title">Contact</h4>
+          <ul class="footer__nav-list">
+            <li>
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              123 King Street, Suite 5,<br />New York, NY 10001
+            </li>
+            <li>
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+              <a href="tel:+15550001234">+1 (555) 000-1234</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+              <a href="mailto:hello@cutandconquer.com">hello@cutandconquer.com</a>
+            </li>
+          </ul>
+        </address>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; <span id="footerYear">2026</span> Cut &amp; Conquer. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="alert" aria-live="polite" aria-atomic="true">
+    <i class="fa-solid fa-circle-check toast__icon" aria-hidden="true"></i>
+    <span class="toast__msg" id="toastMsg"></span>
+  </div>
+
+  <!-- Main JS -->
+  <script src="js/main.js" defer></script>
+</body>
+</html>
